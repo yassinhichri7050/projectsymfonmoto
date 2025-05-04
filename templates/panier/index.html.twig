@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre Panier{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: #121212;
+            color: #f8f9fa;
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #ffc107;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .panier-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #1f1f1f;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        .panier-item {
+            background: #2c2c2c;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .panier-item:hover {
+            background-color: #343a40;
+        }
+
+        .btn-supprimer {
+            background-color: transparent;
+            border: 1px solid #ffc107;
+            color: #ffc107;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .btn-supprimer:hover {
+            background-color: #ffc107;
+            color: #121212;
+        }
+
+        .empty-message {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="panier-container">
+    <h1>Votre Panier</h1>
+
+    {% if panier is empty %}
+        <p class="empty-message">Le panier est vide.</p>
+    {% else %}
+        <ul class="list-unstyled">
+            {% for produit in panier %}
+                <li class="panier-item">
+                    <div>
+                        <strong>{{ produit.nom }}</strong><br>
+                        {{ produit.quantite }} × {{ produit.prix }} € = 
+                        <strong>{{ produit.quantite * produit.prix }} €</strong>
+                    </div>
+                    <a href="{{ path('supprimer_panier', {'id': produit.id}) }}" class="btn-supprimer">
+                        Supprimer
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

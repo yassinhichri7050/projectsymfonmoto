@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-warning" href="{{ path('app_pages') }}">KECH/MOTO</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{{ path('app_pages') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{{ path('app_about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{{ path('afficher_panier') }}">Panier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{{ path('app_help') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+                            <path d="M5.255 5.786a.237.237 0 0 1 .241-.247h.825c.138 0 .248.112.266.25.093.71.384 1.01.738 1.233.42.26.674.682.674 1.274 0 .877-.778 1.457-1.538 1.457-.78 0-1.468-.525-1.562-1.364a.253.253 0 0 1 .246-.281h.75a.262.262 0 0 1 .257.223c.07.398.354.574.605.574.312 0 .565-.246.565-.563 0-.289-.158-.465-.422-.622-.408-.247-.954-.704-.954-1.598zm.812 5.678c.274 0 .494.22.494.493a.5.5 0 0 1-.994 0 .494.494 0 0 1 .5-.493z"/>
+                        </svg>
+                        Help
+                    </a>
+                </li>
+
+                {% if app.user %}
+                    <li class="nav-item ms-3">
+                        <form action="{{ path('app_logout') }}" method="post" class="d-inline">
+                            <button class="btn btn-outline-warning btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.828 5.172a.5.5 0 0 1 .707 0l3 3a.5.5 0 0 1 0 .707l-3 3a.5.5 0 1 1-.707-.707L13.293 9H5.5a.5.5 0 0 1 0-1h7.793l-2.465-2.464a.5.5 0 0 1 0-.707z"/>
+                                    <path fill-rule="evenodd" d="M3.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navbar-dark .navbar-nav .nav-link {
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #ffc107; /* Hover jaune clair */
+        background-color: #343a40; /* Fond foncé au hover */
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+
+    .btn-outline-warning:hover {
+        background-color: #ffc107;
+        color: #212529;
+    }
+</style>

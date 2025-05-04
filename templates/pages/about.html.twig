@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos de KECH/MOTO{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://th.bing.com/th/id/OIP.lKtIMM4fbwffBcm_IkGS8QHaE7?rs=1&pid=ImgDetMain') no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Cairo', sans-serif;
+            color: #f8f9fa;
+        }
+
+        .about-container {
+            margin-top: 60px;
+            background-color: rgba(0, 0, 0, 0.7);  /* Fond sombre derrière le texte */
+            border-radius: 15px;
+            padding: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .about-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid #0d6efd; /* Bordure bleue */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(13,110,253,0.6);
+        }
+
+        .about-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #ffc107;  /* Jaune */
+            margin-top: 30px;
+            transition: color 0.4s ease;
+        }
+
+        .about-title:hover {
+            color: #0d6efd;  /* Bleu clair */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #0d6efd;  /* Bleu foncé */
+            margin-top: 20px;
+            border-bottom: 2px solid #ffc107;  /* Bordure jaune */
+            display: inline-block;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .section-title:hover {
+            color: #ffc107;  /* Jaune au survol */
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+
+        .highlight {
+            color: #ffc107;  /* Jaune */
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container about-container text-center">
+        <img src="https://th.bing.com/th/id/OIP.dbAtHDN44nVncCYRNB-gzAHaEK?rs=1&pid=ImgDetMain" alt="E-Learning" class="about-image">
+        <h1 class="about-title">Bienvenue chez KECH/MOTO</h1>
+
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <p class="about-text text-start">
+            <span class="highlight">KECH/MOTO</span> est une entreprise spécialisée dans la vente, la location et la personnalisation de motos. Depuis notre création, nous nous efforçons d’offrir des services haut de gamme à tous les passionnés de deux-roues.
+        </p>
+
+        <h2 class="section-title">Qu'est-ce qu'une moto ?</h2>
+        <p class="about-text text-start">
+            Une <span class="highlight">moto</span> est un véhicule motorisé à deux roues, conçu pour se déplacer rapidement, efficacement, et avec une grande liberté. Que vous soyez amateur de sensations fortes ou simplement à la recherche d’un moyen de transport pratique, il existe une moto pour vous.
+        </p>
+
+        <h2 class="section-title">Types de motos</h2>
+        <ul class="text-start about-text">
+            <li><strong class="highlight">Motos sportives</strong> : Puissantes, rapides, conçues pour la performance et les routes sinueuses.</li>
+            <li><strong class="highlight">Motos routières</strong> : Parfaites pour les longs trajets avec confort et stabilité.</li>
+            <li><strong class="highlight">Motos tout-terrain</strong> : Idéales pour l’aventure en dehors des routes classiques.</li>
+            <li><strong class="highlight">Cruisers</strong> : Confortables et stylées, pour les longues balades relaxantes.</li>
+        </ul>
+
+        <h2 class="section-title">Notre engagement</h2>
+        <p class="about-text text-start">
+            Chez <span class="highlight">KECH/MOTO</span>, nous mettons l'accent sur la qualité, la sécurité, et la passion. Notre équipe est composée de véritables motards qui comprennent vos besoins et vous accompagnent à chaque étape.
+        </p>
+    </div>
+{% endblock %}

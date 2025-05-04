@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}My Website{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+  <style>
+    /* ✅ Image de fond */
+    body {
+      background-image: url('/img/war.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      color: white;
+      font-size: 1.2rem; /* Texte plus grand */
+    }
+
+    /* ✅ Titres jaunes avec hover rouge */
+    h1, h2, h3, h4, h5, h6 {
+      color: #ffd700 !important; /* Jaune */
+      transition: color 0.3s ease;
+    }
+
+    h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+      color: #ff4d4d !important; /* Rouge */
+    }
+
+    /* ✅ Textes en blanc par défaut */
+    p, a, span, li, label {
+      color: white !important;
+      font-size: 1.1rem;
+    }
+
+    /* ✅ Liens comme des boutons modernes */
+    a, .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 30px;
+      text-decoration: none;
+      background-color: #343a40;
+      color: white !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border: none;
+    }
+
+    a:hover, .btn:hover {
+      background-color: #ff4d4d;
+      color: white !important;
+      transform: scale(1.05);
+    }
+
+    /* ✅ Navbar */
+    .custom-navbar {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: white !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ff4d4d !important;
+    }
+
+    /* ✅ Footer */
+    .custom-footer {
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+
+    .custom-footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* ✅ Bouton logout */
+    .btn-logout {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-logout svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    .btn-logout:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'pages/header.html.twig' %}
+
+  <main class="container mt-4">
+    {% block body %}{% endblock %}
+  </main>
+
+  {% include 'pages/footer.html.twig' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

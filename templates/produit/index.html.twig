@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil -KECH/moto{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-4">KECH/moto</h1>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px;">
+        {% for produit in produits %}
+            <div style="border: 1px solid #ccc; padding: 16px; width: 300px; border-radius: 10px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
+                <h2>{{ produit.nom }}</h2>
+                
+                {% if produit.image %}
+                    <img src="{{ produit.image }}" alt="{{ produit.nom }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+                {% endif %}
+                
+                <p><strong>Description :</strong> {{ produit.description }}</p>
+                <p><strong>Prix :</strong> {{ produit.prix }} €</p>
+
+               
+
+                <form action="{{ path('ajouter_panier', {id: produit.id}) }}" method="post">
+                    <button type="submit" style="padding: 8px 16px; background-color:rgb(64, 4, 110); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Ajouter au panier
+                    </button>
+                </form>
+            </div>
+        {% else %}
+            <p>Aucun produit disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

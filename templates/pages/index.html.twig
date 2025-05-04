@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #ffffff;
+        }
+
+        h1, h2 {
+            color: #fff8e1; /* Blanc cassé pour les titres */
+            font-weight: bold;
+        }
+
+        p {
+            color: #f5f5f5; /* Texte clair */
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .btn-ija {
+            background-color: #ff9800; /* Orange vif */
+            color: white;
+            font-size: 1.2rem;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-ija:hover {
+            background-color: #f57c00;
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+        .def-block {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .def-1 {
+            background-color: rgba(255, 152, 0, 0.85); /* Orange clair */
+            color: #fff;
+        }
+
+        .def-2 {
+            background-color: rgba(76, 175, 80, 0.85); /* Vert doux */
+            color: #fff;
+        }
+
+        .def-3 {
+            background-color: rgba(255, 235, 59, 0.85); /* Jaune doux */
+            color: #212121;
+        }
+
+        hr {
+            border-color: #ffffff;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}Kech/Moto{% endblock %}
+
+{% block body %}
+    <div class="container text-center py-5">
+        <img src="{{ asset('img/back.jpg') }}" alt="Image de fond" width="50%" class="hero-img">
+
+        <h1>Découvrez les meilleures motos du marché ! chez <strong>KECH/MOTO</strong></h1>
+
+        <div class="mt-4">
+            <a href="{{ path('app_produit') }}" class="btn btn-ija">
+                Ija Chouf Moutourat 🏍️
+            </a>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="def-block def-1">
+            <h2>Qualité Supérieure</h2>
+            <p>Nos motos sont soigneusement sélectionnées pour leur performance, leur sécurité et leur durabilité.</p>
+        </div>
+
+        <div class="def-block def-2">
+            <h2>Prix Compétitifs</h2>
+            <p>Chez KECH/MOTO, vous trouverez des motos au meilleur rapport qualité/prix du marché.</p>
+        </div>
+
+        <div class="def-block def-3">
+            <h2>Service Client Dédié</h2>
+            <p>Notre équipe vous accompagne avant, pendant et après votre achat avec professionnalisme.</p>
+        </div>
+    </div>
+{% endblock %}

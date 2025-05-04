@@ -1,0 +1,25 @@
+<footer class="custom-footer text-center py-4 mt-5">
+    <p>&copy; {{ "now"|date("Y") }}. c'est pas les flics que fait la loi🚫</p>
+</footer>
+
+<style>
+    .custom-footer {
+        background-color: #0d0d0d; /* noir profond */
+        color: #f8f9fa; /* texte clair */
+        font-family: 'Cairo', sans-serif;
+        font-size: 1rem;
+        border-top: 2px solid #ffc107; /* fine bordure jaune doré */
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .custom-footer:hover {
+        background-color: #1a1a1a; /* un peu plus clair au hover */
+        color: #ffc107; /* texte devient doré au hover */
+    }
+
+    .custom-footer p {
+        margin: 0;
+        padding: 0;
+    }
+</style>
