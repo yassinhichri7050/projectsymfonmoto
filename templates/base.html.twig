@@ -7,34 +7,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
   <style>
-    /* ✅ Image de fond */
+    :root {
+      --text-color: #fdfdfd;
+      --highlight-color: #ffd700;
+    }
+
     body {
-      background-image: url('/img/war.png');
+      position: relative;
+      background-image: url('/img/kawasaki-ninja-h2-new.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
-      color: white;
-      font-size: 1.2rem; /* Texte plus grand */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-color);
+      overflow-x: hidden;
+      margin: 0;
     }
 
-    /* ✅ Titres jaunes avec hover rouge */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: inherit;
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px);
+      z-index: -1;
+    }
+
     h1, h2, h3, h4, h5, h6 {
-      color: #ffd700 !important; /* Jaune */
+      color: var(--highlight-color);
+      font-weight: bold;
       transition: color 0.3s ease;
     }
 
-    h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
-      color: #ff4d4d !important; /* Rouge */
+    h1:hover, h2:hover, h3:hover {
+      color: #ff4d4d;
     }
 
-    /* ✅ Textes en blanc par défaut */
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 2rem; }
+    h4 { font-size: 1.8rem; }
+    h5 { font-size: 1.5rem; }
+    h6 { font-size: 1.2rem; }
+
     p, a, span, li, label {
-      color: white !important;
-      font-size: 1.1rem;
+      color: var(--text-color) !important;
+      font-size: 1.2rem;
     }
 
-    /* ✅ Liens comme des boutons modernes */
     a, .btn {
       display: inline-block;
       padding: 10px 20px;
@@ -54,10 +80,10 @@
       transform: scale(1.05);
     }
 
-    /* ✅ Navbar */
     .custom-navbar {
       background: rgba(0, 0, 0, 0.8);
       padding: 10px;
+      margin-bottom: 0;
     }
 
     .navbar-brand {
@@ -76,12 +102,11 @@
       color: #ff4d4d !important;
     }
 
-    /* ✅ Footer */
     .custom-footer {
       background: rgba(0, 0, 0, 0.85);
       color: white;
       padding: 20px 0;
-      margin-top: 50px;
+      margin-top: auto;
     }
 
     .custom-footer p {
@@ -89,7 +114,6 @@
       font-size: 1rem;
     }
 
-    /* ✅ Bouton logout */
     .btn-logout {
       background: transparent;
       border: none;
@@ -106,13 +130,19 @@
     .btn-logout:hover {
       transform: scale(1.1);
     }
+
+    main.container {
+      margin-top: 0 !important;
+      padding-top: 20px !important;
+    }
   </style>
 </head>
-<body>
+
+<body class="d-flex flex-column min-vh-100">
 
   {% include 'pages/header.html.twig' %}
 
-  <main class="container mt-4">
+  <main class="container flex-fill">
     {% block body %}{% endblock %}
   </main>
 
@@ -120,4 +150,4 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 

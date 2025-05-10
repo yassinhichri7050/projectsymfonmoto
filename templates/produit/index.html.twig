@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil -KECH/moto{% endblock %}
+{% block title %}Accueil - KECH/moto{% endblock %}
 
 {% block body %}
     <h1 class="text-center mt-4">KECH/moto</h1>
@@ -17,13 +17,14 @@
                 <p><strong>Description :</strong> {{ produit.description }}</p>
                 <p><strong>Prix :</strong> {{ produit.prix }} €</p>
 
-               
-
-                <form action="{{ path('ajouter_panier', {id: produit.id}) }}" method="post">
-                    <button type="submit" style="padding: 8px 16px; background-color:rgb(64, 4, 110); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                <!-- Bouton Ajouter au panier -->
+                <form action="{{ path('ajouter_panier', {id: produit.id}) }}" method="post" style="margin-bottom: 10px;">
+                    <button type="submit" style="padding: 8px 16px; background-color: rgb(64, 4, 110); color: white; border: none; border-radius: 5px; cursor: pointer;">
                         Ajouter au panier
                     </button>
                 </form>
+
+               
             </div>
         {% else %}
             <p>Aucun produit disponible pour le moment.</p>
