@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat IA{% endblock %}
+
+{% block body %}
+    <h1>Parle à ton assistant IA 🚀</h1>
+
+    <form method="post">
+        <textarea name="question" rows="5" cols="50" placeholder="Pose ta question ici..."></textarea><br>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    {% if response %}
+        <h2>Réponse de l'IA :</h2>
+        <div style="background:#000000;padding:1em;border-radius:5px;">
+            {{ response }}
+        </div>
+    {% endif %}
+{% endblock %}
